@@ -9,6 +9,9 @@ provides a key mapping to stop the search highlighting.
 
 ![vim-searchant demo](https://misc.timakro.de/vim-searchant.png)
 
+## Requirements
+* Vim 7.0+
+
 ## Installation
 It is recommended to install this plugin using
 [pathogen.vim](http://github.com/tpope/vim-pathogen) or
