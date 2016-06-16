@@ -2,7 +2,7 @@
 
 Author:     Tim Schumacher <tim@timakro.de>
 License:    GPLv3
-Version:    1.0.2
+Version:    1.0.3
 
 ==============================================================================
 CONTENTS                                                  *searchant-contents*
@@ -84,6 +84,10 @@ http://github.com/timakro/vim-searchant
 ==============================================================================
 5. Changelog                                             *searchant-changelog*
 
+v1.0.3
+    * Added support for the ignorecase option
+    * Fixed highlighting for patterns using branches
+    * Fixed highlighting for non-GUI (broke with GUI fix)
 v1.0.2
     * Fixed current result highlighting for GUI
 v1.0.1
