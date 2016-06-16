@@ -43,6 +43,9 @@ function! s:Update()
     endif
     if g:searchant_current
         let pattern = '\%'.line('.').'l\%'.col('.').'c\%('.@/.'\)'
+        if &ignorecase
+            let pattern .= '\c'
+        endif
         let s:current_match_id = matchadd("SearchCurrent", pattern, 2)
     endif
 endfunction
