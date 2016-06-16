@@ -42,7 +42,7 @@ function! s:Update()
         set hlsearch
     endif
     if g:searchant_current
-        let pattern = '\%'.line('.').'l\%'.col('.').'c'.@/
+        let pattern = '\%'.line('.').'l\%'.col('.').'c\%('.@/.'\)'
         let s:current_match_id = matchadd("SearchCurrent", pattern, 2)
     endif
 endfunction
