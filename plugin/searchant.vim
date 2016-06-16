@@ -21,7 +21,7 @@ endif
 
 " default highlight current style
 if !hlexists("SearchCurrent")
-    highlight SearchCurrent ctermbg=9 ctermfg=0 guibg=#ff0000 guifg=#000000
+    highlight SearchCurrent ctermbg=red ctermfg=0 guibg=#ff0000 guifg=#000000
 endif
 
 function s:SID()
