@@ -13,9 +13,10 @@ provides a key mapping to stop the search highlighting.
 * Vim 7.0+
 
 ## Installation
-It is recommended to install this plugin using
-[pathogen.vim](http://github.com/tpope/vim-pathogen) or
-[Vundle.vim](https://github.com/VundleVim/Vundle.vim).
+It is recommended to install this plugin using a plugin manager like
+[pathogen.vim](http://github.com/tpope/vim-pathogen),
+[Vundle.vim](https://github.com/VundleVim/Vundle.vim) or
+[vim-plug](https://github.com/junegunn/vim-plug).
 
 Alternatively you can just drop the `plugin` and `doc` folders into your
 `~/.vim` directory. Don't forget to run `:helptags ~/.vim/doc` to generate the
