@@ -1,7 +1,7 @@
 " searchant.vim - Vim plugin for improved search highlighting
 " Author:   Tim Schumacher <tim@timakro.de>
 " License:  GPLv3
-" Version:  1.0.3
+" Version:  1.0.4
 
 if exists("g:loaded_searchant")
     finish

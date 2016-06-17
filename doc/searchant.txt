@@ -2,7 +2,7 @@
 
 Author:     Tim Schumacher <tim@timakro.de>
 License:    GPLv3
-Version:    1.0.3
+Version:    1.0.4
 
 ==============================================================================
 CONTENTS                                                  *searchant-contents*
@@ -84,6 +84,9 @@ http://github.com/timakro/vim-searchant
 ==============================================================================
 5. Changelog                                             *searchant-changelog*
 
+v1.0.4
+    * Fixed handling of multiple windows
+    * Fixed highlighting staying when searching for non existing pattern
 v1.0.3
     * Added support for the ignorecase option
     * Fixed highlighting for patterns using branches
