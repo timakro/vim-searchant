@@ -28,16 +28,7 @@ function s:SID()
     return matchstr(expand('<sfile>'), '<SNR>\zs\d\+\ze_SID$')
 endfun
 
-function! s:Stop()
-    set nohlsearch
-    if exists("w:current_match_id")
-        call matchdelete(w:current_match_id)
-        unlet w:current_match_id
-    endif
-endfunction
-
-function! s:Update()
-    call s:Stop()
+function! s:Start()
     if g:searchant_all
         set hlsearch
     endif
@@ -50,21 +41,38 @@ function! s:Update()
     endif
 endfunction
 
-" update highlighting after various search actions
+function! s:Stop()
+    set nohlsearch
+    if exists("w:current_match_id")
+        call matchdelete(w:current_match_id)
+        unlet w:current_match_id
+    endif
+endfunction
+
+function! s:Update()
+    call s:Stop()
+    call s:Start()
+endfunction
+
+" update highlighting after search commands
 function! s:OnCommand()
     if getcmdtype() == "/" || getcmdtype() == "?"
-        return "\<CR>:call <SNR>".s:SID()."_Update()\<CR>"
+        call s:Stop()
+        return "\<CR>:call <SNR>".s:SID()."_Start()\<CR>"
     else
         return "\<CR>"
     endif
 endfunction
 cnoremap <silent> <expr> <CR> <SID>OnCommand()
-nnoremap <silent> * *:call <SID>Update()<CR>
-nnoremap <silent> # #:call <SID>Update()<CR>
-nnoremap <silent> g* g*:call <SID>Update()<CR>
-nnoremap <silent> g# g#:call <SID>Update()<CR>
-nnoremap <silent> n n:call <SID>Update()<CR>
-nnoremap <silent> N N:call <SID>Update()<CR>
+
+" update highlighting after search mappings
+nnoremap <silent> <unique> <Plug>SearchantUpdate :call <SID>Update()<CR>
+nmap * *<Plug>SearchantUpdate
+nmap # #<Plug>SearchantUpdate
+nmap g* g*<Plug>SearchantUpdate
+nmap g# g#<Plug>SearchantUpdate
+nmap n n<Plug>SearchantUpdate
+nmap N N<Plug>SearchantUpdate
 
 " define mapping to stop highlighting
 nnoremap <silent> <unique> <Plug>SearchantStop :call <SID>Stop()<CR>
