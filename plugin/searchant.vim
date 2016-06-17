@@ -30,9 +30,9 @@ endfun
 
 function! s:Stop()
     set nohlsearch
-    if exists("s:current_match_id")
-        call matchdelete(s:current_match_id)
-        unlet s:current_match_id
+    if exists("w:current_match_id")
+        call matchdelete(w:current_match_id)
+        unlet w:current_match_id
     endif
 endfunction
 
@@ -46,7 +46,7 @@ function! s:Update()
         if &ignorecase
             let pattern .= '\c'
         endif
-        let s:current_match_id = matchadd("SearchCurrent", pattern, 2)
+        let w:current_match_id = matchadd("SearchCurrent", pattern, 2)
     endif
 endfunction
 
