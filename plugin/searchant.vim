@@ -24,7 +24,7 @@ if !hlexists("SearchCurrent")
     highlight SearchCurrent ctermbg=red ctermfg=0 guibg=#ff0000 guifg=#000000
 endif
 
-function s:SID()
+function! s:SID()
     return matchstr(expand('<sfile>'), '<SNR>\zs\d\+\ze_SID$')
 endfun
 
@@ -63,16 +63,22 @@ function! s:OnCommand()
         return "\<CR>"
     endif
 endfunction
-cnoremap <silent> <expr> <CR> <SID>OnCommand()
+cnoremap <silent> <unique> <expr> <CR> <SID>OnCommand()
 
 " update highlighting after search mappings
-nnoremap <silent> <unique> <Plug>SearchantUpdate :call <SID>Update()<CR>
-nmap * *<Plug>SearchantUpdate
-nmap # #<Plug>SearchantUpdate
-nmap g* g*<Plug>SearchantUpdate
-nmap g# g#<Plug>SearchantUpdate
-nmap n n<Plug>SearchantUpdate
-nmap N N<Plug>SearchantUpdate
+function! s:MapUpdate(name)
+    let recall = maparg(a:name, "n")
+    if !len(recall)
+        let recall = a:name
+    endif
+    execute "nnoremap <silent> ".a:name." ".recall.":call <SID>Update()<CR>"
+endfunction
+call s:MapUpdate("*")
+call s:MapUpdate("#")
+call s:MapUpdate("g*")
+call s:MapUpdate("g#")
+call s:MapUpdate("n")
+call s:MapUpdate("N")
 
 " define mapping to stop highlighting
 nnoremap <silent> <unique> <Plug>SearchantStop :call <SID>Stop()<CR>
