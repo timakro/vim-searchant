@@ -24,11 +24,11 @@ if !hlexists("SearchCurrent")
     highlight SearchCurrent ctermbg=red ctermfg=0 guibg=#ff0000 guifg=#000000
 endif
 
-function! s:SID()
+function s:SID()
     return matchstr(expand('<sfile>'), '<SNR>\zs\d\+\ze_SID$')
 endfun
 
-function! s:Start()
+function s:Start()
     if g:searchant_all
         set hlsearch
     endif
@@ -41,7 +41,7 @@ function! s:Start()
     endif
 endfunction
 
-function! s:Stop()
+function s:Stop()
     set nohlsearch
     if exists("w:current_match_id")
         call matchdelete(w:current_match_id)
@@ -49,13 +49,13 @@ function! s:Stop()
     endif
 endfunction
 
-function! s:Update()
+function s:Update()
     call s:Stop()
     call s:Start()
 endfunction
 
 " update highlighting after search commands
-function! s:OnCommand()
+function s:OnCommand()
     if getcmdtype() == "/" || getcmdtype() == "?"
         call s:Stop()
         return "\<CR>:call <SNR>".s:SID()."_Start()\<CR>"
@@ -66,7 +66,7 @@ endfunction
 cnoremap <silent> <unique> <expr> <CR> <SID>OnCommand()
 
 " update highlighting after search mappings
-function! s:MapUpdate(name)
+function s:MapUpdate(name)
     let recall = maparg(a:name, "n")
     if !len(recall)
         let recall = a:name
