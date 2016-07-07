@@ -39,6 +39,11 @@ function s:Start()
         endif
         let w:current_match_id = matchadd("SearchCurrent", pattern, 2)
     endif
+    " open fold
+    try
+        normal! zo
+        catch /^Vim\%((\a\+)\)\=:E490/
+    endtry
 endfunction
 
 function s:Stop()
