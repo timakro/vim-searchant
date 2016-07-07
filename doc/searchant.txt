@@ -2,7 +2,7 @@
 
 Author:     Tim Schumacher <tim@timakro.de>
 License:    GPLv3
-Version:    1.0.5
+Version:    1.0.6
 
 ==============================================================================
 CONTENTS                                                  *searchant-contents*
@@ -84,6 +84,8 @@ http://github.com/timakro/vim-searchant
 ==============================================================================
 5. Changelog                                             *searchant-changelog*
 
+v1.0.6
+    * Fixed folds not opening automatically
 v1.0.5
     * Keep user-defined search mappings
 v1.0.4
