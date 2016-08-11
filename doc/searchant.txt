@@ -10,7 +10,7 @@ CONTENTS                                                  *searchant-contents*
     1. Features ..................................... |searchant-features|
         1.1 Highlight current result ................ |searchant-hl-current|
         1.2 Stop highlighting ....................... |searchant-hl-stop|
-        1.3 Standart highlighting ................... |searchant-hl-standart|
+        1.3 Standard highlighting ................... |searchant-hl-standard|
     2. License ...................................... |searchant-license|
     3. Bugs ......................................... |searchant-bugs|
     4. Contributing ................................. |searchant-contributing|
@@ -50,15 +50,15 @@ it fit nicely. Nevertheless you can use another key, for example t:
     nmap t <Plug>SearchantStop
 
 ------------------------------------------------------------------------------
-1.3 Standart highlighting                              *searchant-hl-standart*
+1.3 Standard highlighting                              *searchant-hl-standard*
 
-Searchant enables the standart search highlighting by default, if you only
-want to see the highlighting of the current result turn the standart
+Searchant enables the standard search highlighting by default, if you only
+want to see the highlighting of the current result turn the standard
 highlighting off like this:
 
     let g:searchant_all = 0
 
-You can still change the way the standart highlighting looks like normal, for
+You can still change the way the standard highlighting looks like normal, for
 example to change the background color to blue use:
 
     highlight Search ctermbg=blue
