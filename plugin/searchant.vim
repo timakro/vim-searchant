@@ -47,7 +47,6 @@ function s:Start()
 endfunction
 
 function s:Stop()
-    set nohlsearch
     if exists("w:current_match_id")
         call matchdelete(w:current_match_id)
         unlet w:current_match_id
@@ -76,7 +75,7 @@ function s:MapUpdate(name)
     if !len(recall)
         let recall = a:name
     endif
-    execute "nnoremap <silent> ".a:name." ".recall.":call <SID>Update()<CR>"
+    execute "nmap <silent> ".a:name." ".recall.":call <SID>Update()<CR>"
 endfunction
 call s:MapUpdate("*")
 call s:MapUpdate("#")
