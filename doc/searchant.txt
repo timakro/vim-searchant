@@ -2,7 +2,7 @@
 
 Author:     Tim Schumacher <tim@timakro.de>
 License:    GPLv3
-Version:    1.0.6
+Version:    1.0.7
 
 ==============================================================================
 CONTENTS                                                  *searchant-contents*
@@ -84,6 +84,9 @@ http://github.com/timakro/vim-searchant
 ==============================================================================
 5. Changelog                                             *searchant-changelog*
 
+v1.0.7
+    * Better compatibility with other enhanced search plugins
+      (namely vim-anzu and vim-asterisk, thanks to qxxxb)
 v1.0.6
     * Fixed folds not opening automatically
 v1.0.5
