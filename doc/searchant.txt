@@ -34,11 +34,6 @@ to set it for example to cyan use:
 
     highlight SearchCurrent ctermbg=cyan
 
-If you only want to use the key mapping to stop the search highlighting you
-can deactivate the highlighting of the current result like this:
-
-    set g:searchant_current = 0
-
 ------------------------------------------------------------------------------
 1.2 Stop highlighting                                      *searchant-hl-stop*
 

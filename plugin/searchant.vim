@@ -15,9 +15,6 @@ endif
 if !exists("g:searchant_all")
     let g:searchant_all = 1
 endif
-if !exists("g:searchant_current")
-    let g:searchant_current = 1
-endif
 
 " Default highlight current style
 if !hlexists("SearchCurrent")
@@ -32,13 +29,11 @@ function s:Start()
     if g:searchant_all
         set hlsearch
     endif
-    if g:searchant_current
-        let pattern = '\%'.line('.').'l\%'.col('.').'c\%('.@/.'\)'
-        if &ignorecase
-            let pattern .= '\c'
-        endif
-        let w:current_match_id = matchadd("SearchCurrent", pattern, 2)
+    let pattern = '\%'.line('.').'l\%'.col('.').'c\%('.@/.'\)'
+    if &ignorecase
+        let pattern .= '\c'
     endif
+    let w:current_match_id = matchadd("SearchCurrent", pattern, 2)
     " Open fold
     try
         normal! zo
