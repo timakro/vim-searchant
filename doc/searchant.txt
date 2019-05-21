@@ -2,7 +2,7 @@
 
 Author:     Tim Schumacher <tim@timakro.de>
 License:    GPLv3
-Version:    1.0.7
+Version:    1.1.0
 
 ==============================================================================
 CONTENTS                                                  *searchant-contents*
@@ -91,6 +91,9 @@ http://github.com/timakro/vim-searchant
 ==============================================================================
 5. Changelog                                             *searchant-changelog*
 
+v1.1.0
+    * Removed g:searchant_current setting
+    * Added toggle functionality (thanks to andykais)
 v1.0.7
     * Better compatibility with other enhanced search plugins
       (namely vim-anzu and vim-asterisk, thanks to qxxxb)
