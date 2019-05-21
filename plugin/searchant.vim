@@ -64,7 +64,6 @@ function s:Toggle()
         set nohlsearch
     else
         call s:Start()
-        set hlsearch
     endif
 endfunction
 
