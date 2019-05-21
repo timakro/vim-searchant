@@ -58,6 +58,16 @@ function s:Update()
     call s:Start()
 endfunction
 
+function s:Toggle()
+  if exists("w:current_match_id")
+    :call s:Stop()
+    :set nohlsearch
+  else
+    call s:Start()
+    set hlsearch
+  endif
+endfunction
+
 " update highlighting after search commands
 function s:OnCommand()
     if getcmdtype() == "/" || getcmdtype() == "?"
@@ -86,6 +96,8 @@ call s:MapUpdate("N")
 
 " define mapping to stop highlighting
 nnoremap <silent> <unique> <Plug>SearchantStop :call <SID>Stop()<CR> :nohlsearch<CR>
+nnoremap <silent> <unique> <Plug>SearchantToggle :call <SID>Toggle()<CR>
+
 if g:searchant_map_stop
     nmap <unique> <C-C> <Plug>SearchantStop
 endif
