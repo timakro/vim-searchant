@@ -8,7 +8,7 @@ if exists("g:loaded_searchant")
 endif
 let g:loaded_searchant = 1
 
-" default variables
+" Default variables
 if !exists("g:searchant_map_stop")
     let g:searchant_map_stop = 1
 endif
@@ -19,7 +19,7 @@ if !exists("g:searchant_current")
     let g:searchant_current = 1
 endif
 
-" default highlight current style
+" Default highlight current style
 if !hlexists("SearchCurrent")
     highlight SearchCurrent ctermbg=red ctermfg=0 guibg=#ff0000 guifg=#000000
 endif
@@ -39,7 +39,7 @@ function s:Start()
         endif
         let w:current_match_id = matchadd("SearchCurrent", pattern, 2)
     endif
-    " open fold
+    " Open fold
     try
         normal! zo
         catch /^Vim\%((\a\+)\)\=:E490/
@@ -59,16 +59,16 @@ function s:Update()
 endfunction
 
 function s:Toggle()
-  if exists("w:current_match_id")
-    :call s:Stop()
-    :set nohlsearch
-  else
-    call s:Start()
-    set hlsearch
-  endif
+    if exists("w:current_match_id")
+        call s:Stop()
+        set nohlsearch
+    else
+        call s:Start()
+        set hlsearch
+    endif
 endfunction
 
-" update highlighting after search commands
+" Update highlighting after search commands
 function s:OnCommand()
     if getcmdtype() == "/" || getcmdtype() == "?"
         call s:Stop()
@@ -79,7 +79,7 @@ function s:OnCommand()
 endfunction
 cnoremap <silent> <unique> <expr> <CR> <SID>OnCommand()
 
-" update highlighting after search mappings
+" Update highlighting after search mappings
 function s:MapUpdate(name)
     let recall = maparg(a:name, "n")
     if !len(recall)
@@ -94,7 +94,7 @@ call s:MapUpdate("g#")
 call s:MapUpdate("n")
 call s:MapUpdate("N")
 
-" define mapping to stop highlighting
+" Define mapping to stop/toggle highlighting
 nnoremap <silent> <unique> <Plug>SearchantStop :call <SID>Stop()<CR> :nohlsearch<CR>
 nnoremap <silent> <unique> <Plug>SearchantToggle :call <SID>Toggle()<CR>
 
