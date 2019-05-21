@@ -43,6 +43,7 @@ endfunction
 
 function s:Stop()
     if exists("w:current_match_id")
+        set nohlsearch
         call matchdelete(w:current_match_id)
         unlet w:current_match_id
     endif
@@ -56,7 +57,6 @@ endfunction
 function s:Toggle()
     if exists("w:current_match_id")
         call s:Stop()
-        set nohlsearch
     else
         call s:Start()
     endif
@@ -89,7 +89,7 @@ call s:MapUpdate("n")
 call s:MapUpdate("N")
 
 " Define mapping to stop/toggle highlighting
-nnoremap <silent> <unique> <Plug>SearchantStop :call <SID>Stop()<CR> :nohlsearch<CR>
+nnoremap <silent> <unique> <Plug>SearchantStop :call <SID>Stop()<CR>
 nnoremap <silent> <unique> <Plug>SearchantToggle :call <SID>Toggle()<CR>
 
 if g:searchant_map_stop
