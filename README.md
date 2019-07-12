@@ -11,7 +11,7 @@ provides a key mapping to stop the search highlighting.
 
 View the documentation in Vim with `:help searchant` or [on the web](https://raw.githubusercontent.com/timakro/vim-searchant/master/doc/searchant.txt).
 
-![vim-searchant demo](https://misc.timakro.de/vim-searchant.png)
+![vim-searchant demo](https://files.timakro.de/vim-searchant.png)
 
 ## Requirements
 
