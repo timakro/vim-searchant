@@ -9,12 +9,8 @@ endif
 let g:loaded_searchant = 1
 
 " Default variables
-if !exists("g:searchant_map_stop")
-    let g:searchant_map_stop = 1
-endif
-if !exists("g:searchant_all")
-    let g:searchant_all = 1
-endif
+let g:searchant_all = get(g:, 'searchant_all', 1)
+let g:searchant_map_stop = get(g:, 'searchant_map_stop', 1)
 
 " Default highlight current style
 if !hlexists("SearchCurrent")
@@ -22,14 +18,15 @@ if !hlexists("SearchCurrent")
 endif
 
 function s:SID()
-    return matchstr(expand('<sfile>'), '<SNR>\zs\d\+\ze_SID$')
+    return matchstr(expand('<sfile>'), '<SNR>\m\zs\d\+\ze_SID$')
 endfun
 
 function s:Start()
     if g:searchant_all
         set hlsearch
     endif
-    let pattern = '\%'.line('.').'l\%'.col('.').'c\%('.@/.'\)'
+    let pattern = '\m\%'.line('.').'l\%'.col('.').'c'
+                \ . '\%('.(!&magic?'\M':'').@/.'\m\)'
     if &ignorecase
         let pattern .= '\c'
     endif
