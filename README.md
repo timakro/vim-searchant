@@ -28,6 +28,20 @@ Alternatively you can just drop the `plugin` and `doc` folders into your
 `~/.vim` directory. Don't forget to run `:helptags ~/.vim/doc` to generate the
 help tags after a manual installation.
 
+If you are using [incsearch.vim](https://github.com/haya14busa/incsearch.vim)
+and you'd like `vim-searchant` to play-nicely, you can add the following snippet
+to hide the searchant highlight:
+
+```vim
+" Disable Searchant highlight when incsearch.vim highlights also disable
+autocmd CursorMoved * call SearchantStop()
+function SearchantStop()
+  :execute "normal \<Plug>SearchantStop"
+endfunction
+```
+
+This assumes that you have `let g:incsearch#auto_nohlsearch = 1` in your config.
+
 ## License
 
 Copyright (C) 2017 Tim Schumacher
