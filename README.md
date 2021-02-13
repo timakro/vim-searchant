@@ -41,12 +41,3 @@ endfunction
 ```
 
 This assumes that you have `let g:incsearch#auto_nohlsearch = 1` in your config.
-
-## License
-
-Copyright (C) 2017 Tim Schumacher
-
-License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.
-
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent per‐mitted by law.
