@@ -1,3 +1,7 @@
+# SEARCHANT.VIM IS OBSOLETED BY VIM-SEARCHHI
+
+You should use [vim-searchhi](https://github.com/qxxxb/vim-searchhi) instead of searchant.vim. It fixes a bunch of longstanding bugs of searchant.vim and is overall more polished.
+
 # searchant.vim
 
 Vim plugin for improved search highlighting
